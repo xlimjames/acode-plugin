@@ -1,18 +1,16 @@
 {
-  "$schema": "https://acode.app/schema/plugin/v0.1.0.json",
-  "id": "acode.plugin",
-  "name": "Plugin",
-  "main": "main.js",
+  "id": "var-suggest",
+  "name": "Variable Suggest",
   "version": "1.0.0",
-  "repository": "https://github.com/Acode-Foundation/acode-plugin.git",
-  "icon": "icon.png",
-  "minVersionCode": 290,
-  "license": "MIT",
-  "keywords": [],
-  "price": 0,
-  "author": {
-    "name": "",
-    "email": "",
-    "github": ""
-  }
+  "author": "Your Name",
+  "repository": "",
+  "icon": "",
+  "main": "main.js",
+  "files": [
+    "main.js",
+    "readme.md",
+    "changelogs.md"
+  ],
+  "minVersionCode": 0,
+  "description": "Simple autocomplete for const/let/var variable names in the current file."
 }
