@@ -1,21 +1,39 @@
-# Acode plugin
+# Variable Suggest (var-suggest)
 
-Read acode plugin [documentation](https://docs.acode.app/docs/) to develop plugin for acode editor.
+A simple Acode plugin that adds autocomplete suggestions for variable names
+declared with `const`, `let`, or `var` in the current file.
 
-## Usage
+## Features
 
-Use this for debug build:
+- Scans the current file for patterns like:
+  - `const name = ...`
+  - `let name = ...`
+  - `var name = ...`
+- Provides those names as suggestions when you type in the editor.
+- Works well for quick scripts and small projects.
 
-```
-npm run dev
-```
+## How it works
 
-and this for production build:
+1. On load, the plugin attaches to Acode's editor via `editorManager`.
+2. It adds a custom Ace completer (`editor.completers.push(...)`).
+3. The completer:
+   - Reads the entire file content
+   - Extracts variable names with a regex
+   - Returns them as autocomplete candidates
 
-```
-npm run build
-```
+## Installation
 
-## How to parse/bundle scss file ?
+1. Put all files into a folder called `var-suggest`:
+   - `plugin.json`
+   - `main.js`
+   - `readme.md`
+   - `changelogs.md`
+2. Zip the `var-suggest` folder.
+3. Load/install the zip in Acode as a plugin.
+4. Open a JavaScript file and start typing to see suggestions.
 
-You'll need to install one sass esbuild plugin and then just add that in `esbuild.config.mjs` at line 34
+## Limitations
+
+- Only looks for `const`, `let`, `var` patterns.
+- Does not understand imports, scopes, or other languages.
+- Meant as a lightweight helper, not a full IntelliSense engine.
